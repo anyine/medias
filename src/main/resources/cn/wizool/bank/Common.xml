@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="2" />
+		<property name="minPoolSize" value="2" />
+		<property name="maxPoolSize" value="2" />
+		<property name="idleConnectionTestPeriod" value="300" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.default_schema">${hibernate.default_schema}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" ref="packagesToScan" />
+		<property name="mappingLocations" ref="mappingLocations">
+		</property>
+		<property name="namingStrategy" ref="namingStrategy" />
+	</bean>
+
+	<bean id="namingStrategy" class="cn.wizool.bank.iwebutil.DatabaseNameGenerator">
+		<property name="prefix" value="${hibernate.table.prefix}" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="transactionProxyFactoryBean"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		lazy-init="true" abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="trans*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="AbstractDao" abstract="true">
+		<property name="hibernateTemplate" ref="template"></property>
+		<property name="dataAccessFactory" ref="DataAccessFactory"></property>
+	</bean>
+
+	<bean class="AbstractService" abstract="true">
+		<property name="dataAccessFactory" ref="DataAccessFactory" />
+		<property name="serviceFactory" ref="ServiceFactory" />
+	</bean>
+
+	<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+</beans>

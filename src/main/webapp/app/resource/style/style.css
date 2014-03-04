@@ -1,0 +1,344 @@
+.bgimage {
+	background: url(../image/login.jpg);
+	background-position: 100% 100%;
+}
+
+.check {
+	background-image: url(../image/icons/yes.gif) !important;
+}
+
+.backImg {
+	background-image: url(../image/icons/backGroundImg.png) !important;
+}
+
+.backImg2 {
+	background-image: url(../image/icons/backGroundImg2.png) !important;
+}
+
+.exit {
+	background-image: url(../image/exit.png) !important;
+}
+
+.startsnap {
+	background-image: url(../image/startsnap.png) !important;
+}
+
+.phytrain {
+	background-image: url(../image/phytrain.png) !important;
+}
+
+.stopsnap {
+	background-image: url(../image/stopsnap.png) !important;
+}
+
+.cominfo {
+	background-image: url(../image/cominfo.png) !important;
+}
+
+.selectinfo {
+	background-image: url(../image/selectinfo.png) !important;
+}
+
+.sendDocs {
+	background-image: url(../image/sendDocs.png) !important;
+}
+
+.taskinfo {
+	background-image: url(../image/taskinfo.png) !important;
+}
+
+.astrictFlow {
+	background-image: url(../image/astrictFlow.png) !important;
+}
+
+.modifypassword {
+	background-image: url(../image/icons/modifypassword.png) !important;
+}
+
+.updatesystem {
+	background-image: url(../image/icons/updatesystem.png) !important;
+}
+
+.gongneng {
+	background-image: url(../image/icons/image.gif) !important;
+}
+
+.create {
+	background-image: url(../image/icons/create.png) !important;
+}
+
+.modify {
+	background-image: url(../image/icons/modify.png) !important;
+}
+
+.delete {
+	background-image: url(../image/icons/delete.png) !important;
+}
+
+.view {
+	background-image: url(../image/icons/view.png) !important;
+}
+
+.refresh {
+	background-image: url(../image/icons/refresh.png) !important;
+}
+
+.import {
+	background-image: url(../image/icons/import.png) !important;
+}
+
+.query {
+	background-image: url(../image/icons/query.png) !important;
+}
+
+.download {
+	background-image: url(../image/icons/download.png) !important;
+}
+
+.upFirst {
+	background-image: url(../image/icons/upFirst.gif) !important;
+}
+
+.upOne {
+	background-image: url(../image/icons/upOne.gif) !important;
+}
+
+.downLast {
+	background-image: url(../image/icons/downLast.gif) !important;
+}
+
+.downOne {
+	background-image: url(../image/icons/downOne.gif) !important;
+}
+
+.machine16 {
+	background-image: url(../image/icons/machine16.png) !important;
+}
+
+.machine30 {
+	background-image: url(../image/icons/machine30.png) !important;
+}
+
+.user16 {
+	background-image: url(../image/icons/user16.png) !important;
+}
+
+.user30 {
+	background-image: url(../image/icons/user30.png) !important;
+}
+
+.filedownload16 {
+	background-image: url(../image/icons/filedownload16.png) !important;
+}
+
+.filedownload30 {
+	background-image: url(../image/icons/filedownload30.png) !important;
+}
+
+.roll16 {
+	background-image: url(../image/icons/roll16.png) !important;
+}
+
+.roll30 {
+	background-image: url(../image/icons/roll30.png) !important;
+}
+
+.killpower16 {
+	background-image: url(../image/icons/killpower16.png) !important;
+}
+
+.killpower30 {
+	background-image: url(../image/icons/killpower30.png) !important;
+}
+
+.config16 {
+	background-image: url(../image/icons/config16.png) !important;
+}
+
+.config30 {
+	background-image: url(../image/icons/config30.png) !important;
+}
+
+.control16 {
+	background-image: url(../image/icons/control16.png) !important;
+}
+
+.control30 {
+	background-image: url(../image/icons/control30.png) !important;
+}
+
+.tasklog16 {
+	background-image: url(../image/icons/tasklog16.png) !important;
+}
+
+.tasklog30 {
+	background-image: url(../image/icons/tasklog30.png) !important;
+}
+
+.filelog16 {
+	background-image: url(../image/icons/filelog16.png) !important;
+}
+
+.filelog30 {
+	background-image: url(../image/icons/filelog30.png) !important;
+}
+
+.dept16 {
+	background-image: url(../image/icons/dept16.png) !important;
+}
+
+.dept30 {
+	background-image: url(../image/icons/dept30.png) !important;
+}
+
+.fileshare16 {
+	background-image: url(../image/icons/fileshare16.png) !important;
+}
+
+.fileshare30 {
+	background-image: url(../image/icons/fileshare30.png) !important;
+}
+
+.media16 {
+	background-image: url(../image/icons/media16.png) !important;
+}
+
+.media30 {
+	background-image: url(../image/icons/media30.png) !important;
+}
+
+.notice16 {
+	background-image: url(../image/icons/notice16.png) !important;
+}
+
+.notice30 {
+	background-image: url(../image/icons/notice30.png) !important;
+}
+
+.trian16 {
+	background-image: url(../image/icons/trian16.png) !important;
+}
+
+.trian30 {
+	background-image: url(../image/icons/trian30.png) !important;
+}
+
+.tasklog16 {
+	background-image: url(../image/icons/tasklog16.png) !important;
+}
+
+.tasklog30 {
+	background-image: url(../image/icons/tasklog30.png) !important;
+}
+
+.update {
+	background-image: url(../image/icons/download.png) !important;
+}
+
+.restart {
+	background-image: url(../image/icons/restart.png) !important;
+}
+
+.serverupload {
+	background-image: url(../image/icons/serverupload.png) !important;
+}
+
+.screensave {
+	background-image: url(../image/icons/screensave.png) !important;
+}
+
+.sendcommand {
+	background-image: url(../image/icons/screensave.png) !important;
+}
+
+.uploadfile {
+	background-image: url(../image/icons/screensave.png) !important;
+}
+
+.programupload {
+	background-image: url(../image/icons/programupload.png) !important;
+}
+
+.shutdown {
+	background-image: url(../image/icons/shutdown.png) !important;
+}
+
+.tasksend {
+	background-image: url(../image/icons/tasksend.png) !important;
+}
+
+.existtask {
+	background-image: url(../image/icons/killtask.png) !important;
+}
+
+.killtask {
+	background-image: url(../image/icons/killtask.png) !important;
+}
+
+.localupload {
+	background-image: url(../image/icons/localupload.png) !important;
+}
+
+/* 
+.x-tree-node-leaf .dept {
+	background-image: url(../image/dept.gif) !important;
+	margin: 8px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .task {
+	background-image: url(../image/task.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .tasksend {
+	background-image: url(../image/tasksend.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .password {
+	background-image: url(../image/password.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .fileshare {
+	background-image: url(../image/fileshare.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .medium {
+	background-image: url(../image/medium.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .notice {
+	background-image: url(../image/notice.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .train {
+	background-image: url(../image/train.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+}
+
+.x-tree-node-leaf .exit {
+	background-image: url(../image/exit.gif) !important;
+	margin: 4px 4px 4px 4px;
+	height: 49px;
+	width: 150;
+} */

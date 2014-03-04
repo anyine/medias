@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="ext/res/css/ext-all.css" />
+<link rel="stylesheet" type="text/css"
+	href="app/resource/style/style.css" />
+<script type="text/javascript" src="ext/ext-debug.js"></script>
+<script type="text/javascript"
+	src="app/view/tasksend/TaskSendEditWindow.js"></script>
+<script type="text/javascript"
+	src="app/view/tasklog/TaskLogGridPanel.js"></script>
+<script type="text/javascript"
+	src="app/view/tasklog/TrainLogGridPanel.js"></script>
+<script type="text/javascript"
+	src="app/view/tasklog/ServerFileGridPanel.js"></script>
+<script type="text/javascript" src="app/view/tasklog/TaskLogWindow.js"></script>
+<script type="text/javascript"
+	src="app/view/tasklog/TaskMagGridPanel.js"></script>
+<script type="text/javascript"
+	src="app/view/fileshare/FileShareEditWindow.js"></script>
+<script type="text/javascript"
+	src="app/view/fileshare/FileShareGridPanel.js"></script>
+
+<style type="text/css">
+#rollText {
+	
+}
+
+marquee div {
+	cursor: hand;
+}
+
+.font3 {
+	color: red;
+}
+
+.font2 {
+	color: #311EE1;
+}
+
+.font1 {
+	color: #000;
+}
+}
+</style>
+</head>
+<body>
+	<script language="javascript">
+		Ext.BLANK_IMAGE_URL = "ext/res/images/default/s.gif";
+		Ext.onReady(function() {
+			var notice = new app.view.tasklog.TaskLogWindow({
+				width : 1060,
+				height : 600,
+				title : '通知公告历史',
+				layout : 'fit',
+				y : 65 * 4,
+				closeAction : 'hide'
+			});
+			notice.show();
+			notice.setVisible(false);
+			var n1 = Ext.get('noticeShow');
+			var n2 = Ext.get('fileShow');
+			var n3 = Ext.get('trainShow');
+			n1.on('click', function() {
+				notice.setVisible(true);
+			}, this);
+			n2.on('click', function() {
+				var filesShow = new app.view.tasklog.ServerFileGridPanel({
+					checked : true,
+					title : ''
+				});
+				var files = new Ext.Window({
+					width : 1060,
+					height : 600,
+					title : '公文管理',
+					layout : 'fit',
+					y : 65 * 4,
+					items : [ filesShow ]
+				});
+				files.show();
+			}, this);
+			n3.on('click', function() {
+				var trainShow = new app.view.tasklog.TrainLogGridPanel({
+					title : ''
+				});
+				var train = new Ext.Window({
+					width : 1060,
+					height : 600,
+					title : '培训资料历史',
+					layout : 'fit',
+					y : 65 * 4,
+					items : [ trainShow ]
+				});
+				train.show();
+			}, this);
+		});
+	</script>
+	<div style="position: fixed; top: 0; left: 0; bottom: 0; right: 0;">
+		<img style="height: 100%; width: 100%; border: 0;"
+			src="app/resource/image/train.jpg" usemap="#planetmap" alt="Planets" />
+
+		<map name="planetmap" id="planetmap">
+			<!--<area shape="rect" coords="500,100,600,200" href="#" id="noticeShow" />
+			<area shape="rect" coords="500,220,600,300" href="#" id="fileShow" />
+			<area shape="rect" coords="500,320,600,400" href="#" id="trainShow" />
+			<area shape="rect" coords="500,420,600,500"
+				href="app://f6f2a76c-bf34-4cc7-adba-8d2ab99d0fbc" id="examShow" />
+			<area shape="rect" coords="500,520,600,600"
+				href="app://f6f2a76c-bf34-4cc7-adba-8d2ab99d0fbd" id="skillShow" />-->
+			<area shape="rect" coords="1448,311,1716,377" href="#"
+				id="noticeShow" />
+			<area shape="rect" coords="1448,411,1716,477" href="#" id="fileShow" />
+			<area shape="rect" coords="1448,511,1716,577" href="#" id="trainShow" />
+			<area shape="rect" coords="1448,611,1716,677"
+				href="app://f6f2a76c-bf34-4cc7-adba-8d2ab99d0fbc" id="examShow" />
+			<area shape="rect" coords="1448,711,1716,777"
+				href="app://f6f2a76c-bf34-4cc7-adba-8d2ab99d0fbd" id="skillShow" />
+			<area shape="rect" coords="1448,811,1716,877" href="#" id="LEDShow" />
+		</map>
+	</div>
+
+	<script type="text/javascript">
+		function stop() {
+			var el = document.getElementById("moveText");
+			el.setAttribute("scrollamount", "0");
+		}
+		function start() {
+			var el = document.getElementById("moveText");
+			el.setAttribute("scrollamount", "7");
+		}
+		function finishMove() {
+			alert(123);
+		}
+	</script>
+</body>
+</html>

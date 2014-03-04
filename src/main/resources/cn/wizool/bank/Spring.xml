@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean id="cn.wizool.bank.common.DataAccessManager" class="cn.wizool.bank.iwebutil.newlay.DataAccessManager">
+		<property name="dataAccessObjects">
+			<map>
+				<entry key="UserDao">
+					<bean class="cn.wizool.bank.dao.impl.UserDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="BranchDao">
+					<bean class="cn.wizool.bank.dao.impl.BranchDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="MachineDao">
+					<bean class="cn.wizool.bank.dao.impl.MachineDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="MachineTasksDao">
+					<bean class="cn.wizool.bank.dao.impl.MachineTasksDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="FileDownloadDao">
+					<bean class="cn.wizool.bank.dao.impl.FileDownloadDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="ConfigDao">
+					<bean class="cn.wizool.bank.dao.impl.ConfigDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="TaskDocumentsDao">
+					<bean class="cn.wizool.bank.dao.impl.TaskDocumentsDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="DocumentDao">
+					<bean class="cn.wizool.bank.dao.impl.DocumentDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="CommonTaskDao">
+					<bean class="cn.wizool.bank.dao.impl.CommonTaskDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="TrainDao">
+					<bean class="cn.wizool.bank.dao.impl.TrainDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="MediaDao">
+					<bean class="cn.wizool.bank.dao.impl.MediaDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="NoticeDao">
+					<bean class="cn.wizool.bank.dao.impl.NoticeDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="TaskDao">
+					<bean class="cn.wizool.bank.dao.impl.TaskDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="TaskLogDao">
+					<bean class="cn.wizool.bank.dao.impl.TaskLogDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+				<entry key="FileLogDao">
+					<bean class="cn.wizool.bank.dao.impl.FileLogDaoImpl">
+						<property name="hibernateTemplate" ref="template"></property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="cn.wizool.bank.common.ServiceManager" class="cn.wizool.bank.iwebutil.newlay.ServiceManager">
+		<property name="serviceProxyBeans">
+			<map>
+				<entry key="UserService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.UserServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="CacheService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.CacheServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="BranchService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.BranchServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="MachineService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.MachineServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="MachineTasksService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.MachineTasksServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="FileDownloadService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.FileDownloadServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="ConfigService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.ConfigServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="DocumentService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.DocumentServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="TaskService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.TaskServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="TaskLogService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.TaskLogServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="FileLogService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.FileLogServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="TrainService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.TrainServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="MediaService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.MediaServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+				<entry key="NoticeService">
+					<bean parent="transactionProxyFactoryBean">
+						<property name="target">
+							<bean class="cn.wizool.bank.service.impl.NoticeServiceImpl"
+								parent="AbstractService" />
+						</property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

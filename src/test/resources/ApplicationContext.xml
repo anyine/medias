@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="classpath:cn/wizool/bank/config/develop.properties" />
+	</bean>
+
+	<util:list id="packagesToScan">
+		<value>cn.wizool.bank.model</value>
+	</util:list>
+
+	<util:list id="mappingLocations">
+		<!-- <value>classpath:2org/flycloud/platform/model/**/*.hbm.xml</value> -->
+	</util:list>
+
+	<import resource="classpath:cn/wizool/bank/Spring.xml" />
+
+	<import resource="classpath:cn/wizool/bank/Common.xml" />
+
+	<bean id="DataAccessFactory" class="cn.wizool.bank.iwebutil.newlay.DataAccessFactory">
+		<property name="dataAccessManagers">
+			<map>
+				<entry key="platform" value-ref="cn.wizool.bank.common.DataAccessManager"></entry>
+				<entry key="eims" value-ref="cn.wizool.bank.common.DataAccessManager"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="ServiceFactory" class="cn.wizool.bank.iwebutil.newlay.ServiceFactory">
+		<property name="serviceManagers">
+			<map>
+				<entry key="platform" value-ref="cn.wizool.bank.common.ServiceManager"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>
