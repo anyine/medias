@@ -22,7 +22,7 @@ public class Machine {
 	@Column(nullable = true)
 	private String type;
 
-	@Column
+	@Column(unique=true)
 	private String ip;
 
 	@Column
