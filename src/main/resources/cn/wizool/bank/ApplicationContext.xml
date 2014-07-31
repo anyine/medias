@@ -8,7 +8,7 @@
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location"
-			value="classpath:cn/wizool/bank/config/10.0.2.2.properties" />
+			value="classpath:cn/wizool/bank/config/develop.properties" />
 	</bean>
 
 	<util:list id="packagesToScan">

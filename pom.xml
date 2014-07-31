@@ -1,12 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>cn.wizool</groupId>
-	<artifactId>bank</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	
 	<properties>
 		<spring-version>3.0.6.RELEASE</spring-version>
+		<webapp-name>bank</webapp-name>
 	</properties>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.wizool</groupId>
+	<artifactId>${webapp-name}</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
@@ -85,7 +88,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>bank</finalName>
+		<finalName>${webapp-name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -114,7 +117,7 @@
 					<stopKey>foo</stopKey>
 					<stopPort>9999</stopPort>
 					<webAppConfig>
-						<contextPath>/bank</contextPath>
+						<contextPath>/${webapp-name}</contextPath>
 					</webAppConfig>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
@@ -130,7 +133,7 @@
 				<version>2.0-beta-1</version>
 				<configuration>
 					<uriEncoding>utf-8</uriEncoding>
-					<warFile>target/bank.war</warFile>
+					<warFile>target/${webapp-name}.war</warFile>
 					<port>8088</port>
 				</configuration>
 			</plugin>
