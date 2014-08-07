@@ -201,7 +201,7 @@ app.system.MainView = Ext
 										function(btn) {
 											if (btn == 'yes') {
 												document.cookie = "userName=null;path=/";
-												window.location.href = "/bank";
+												window.location.href = "/medias";
 											}
 										});
 					},

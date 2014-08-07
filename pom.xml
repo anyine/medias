@@ -3,12 +3,10 @@
 	
 	<properties>
 		<spring-version>3.0.6.RELEASE</spring-version>
-		<webapp-name>bank</webapp-name>
+		<webapp-name>medias</webapp-name>
 	</properties>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>cn.wizool</groupId>
-	<artifactId>${webapp-name}</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
@@ -63,8 +61,6 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-		<!-- dependency> <groupId>cn.wizool</groupId> <artifactId>zfkey</artifactId> 
-			<version>2012021601</version> </dependency -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -140,4 +136,6 @@
 		</plugins>
 	</build>
 	<packaging>war</packaging>
+	<artifactId>medias</artifactId>
+	<groupId>org.flycloud</groupId>
 </project>
