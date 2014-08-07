@@ -274,7 +274,13 @@ public class DocumentServlet extends PlatFormHttpServlet {
 					Integer count = getDocumentService().selectAllCount();
 					Document d = getDocumentService().getDocById(strs[3]);
 					if (d != null) {
+						d.setMd5(strs[3]);
 						d.setDisplay(true);
+						d.setName(strs[1]);
+						d.setUploadDate(new Date());
+						d.setUpload_publisher(getCurrentUser());
+						d.setType(StringUtil
+								.getDocType(getFileEndName(strs[1])));
 						getDocumentService().transUpdate(null, d);
 					} else {
 						d = new Document();
@@ -329,33 +335,26 @@ public class DocumentServlet extends PlatFormHttpServlet {
 			if (extension.length() <= 0) { // 文件没有后缀名，不是有效文件
 				succee = "请重新选择文件";
 			} else {
-				// 本地路径 ： d:\TMP
 				String loc = getRequest().getServletContext().getInitParameter(
 						"filepath");
 				File dir = new File(loc);
 				if (!dir.exists()) {
 					dir.mkdirs();
 				}
-				p.write(loc + File.separator + uuid);
-
-				File judgeFile = new File(loc + File.separator + uuid);// 已保存到本地的文件
-				if (!judgeFile.exists()) {
-					succee = "上传失败，请重试！";
+				String file = loc + File.separator + uuid;
+				p.write(file);
+				
+				File tmpFile = new File(file);
+				
+				// 获取文件的MD5
+				String md5 = MD5.byteArrayToHex(FileUtil.md5(file));
+				strs[3] = md5;
+				// 判断MD5是否存在
+				if (existsFileByMd5(md5)) {
+					tmpFile.delete();
+					succee = "文件重复";
 				} else {
-					// 获取文件的MD5
-					String md5 = MD5.byteArrayToHex(FileUtil.md5(loc
-							+ File.separator + uuid));
-					strs[3] = md5;
-					// 判断MD5是否存在
-					if (isMD5(md5)) {
-						// 删除本地文件
-						judgeFile.delete();
-						succee = "文件重复";
-					} else {
-						// 换名
-						judgeFile
-								.renameTo(new File(loc + File.separator + md5));
-					}
+					tmpFile.renameTo(new File(loc + File.separator + md5));
 				}
 			}
 			strs[0] = succee;
@@ -407,7 +406,12 @@ public class DocumentServlet extends PlatFormHttpServlet {
 					Integer count = getDocumentService().selectAllCount();
 					Document d = getDocumentService().getDocById(strs[3]);
 					if (d != null) {
+						d.setMd5(strs[3]);
+						d.setName(strs[1]);
 						d.setDisplay(true);
+						d.setType("背景图片");
+						d.setUploadDate(new Date());
+						d.setUpload_publisher(getCurrentUser());
 						getDocumentService().transUpdate(null, d);
 					} else {
 						d = new Document();
@@ -536,7 +540,7 @@ public class DocumentServlet extends PlatFormHttpServlet {
 
 		if (imgfile == null) {
 			imgfile = this.getRequest().getServletContext().getRealPath("/")
-					+ "app/resource/image/login.jpg";
+					+ "/app/resource/image/login.jpg";
 		}
 
 		this.getResponse().setContentType("image/jpg");
@@ -642,15 +646,14 @@ public class DocumentServlet extends PlatFormHttpServlet {
 	 * @param md5
 	 * @return 有true 无false
 	 */
-	private boolean isMD5(String md5) {
-		boolean flag = false;
-		List<Document> list = getDocumentService().getListAlls();
-		for (Document d : list) {
-			if (md5.equals(d.getMd5()))
-				return true;
-		}
-		return flag;
-	}
+	private boolean existsFileByMd5(String md5) {
+ 		List<Document> list = getDocumentService().getListAlls();
+ 		for (Document d : list) {
+ 			if (md5.equals(d.getMd5()))
+ 				return true;
+ 		}
+		return false;
+ 	}
 
 	private void deleteFile(File file) {
 		File[] files = file.listFiles();
