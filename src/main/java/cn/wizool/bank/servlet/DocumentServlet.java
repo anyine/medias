@@ -467,10 +467,12 @@ public class DocumentServlet extends PlatFormHttpServlet {
 							json.setAttribute("length", StringUtil
 									.returnLength((int) doc.getLength()));
 							json.setAttribute("type", doc.getType());
-							json.setAttribute("user", doc.getUpload_publisher()
-									.getName());
-							json.setAttribute("dept", doc.getUpload_publisher()
-									.getParent().getName());
+							if (doc.getUpload_publisher() != null) {
+								json.setAttribute("user", doc.getUpload_publisher()
+										.getName());
+								json.setAttribute("dept", doc.getUpload_publisher()
+										.getParent().getName());
+							}
 						}
 						json.flush();
 					}
