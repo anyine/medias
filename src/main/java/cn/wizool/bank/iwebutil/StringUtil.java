@@ -15,10 +15,10 @@ import java.util.Set;
 public abstract class StringUtil {
 	public static String[] sessionType = { "listMedia", "listNotice",
 			"listTrain" };
-	public static final int KB = 1024;
-	public static final int MB = KB * 1024;
-	public static final int GB = MB * 1024;
-	public static final int TB = GB * 1024;
+	public static final long KB = 1024l;
+	public static final long MB = 1024l * 1024l;
+	public static final long GB = 1024l * 1024l * 1024l;
+	public static final long TB = 1024l * 1024l * 1024l * 1024l;
 	public static final int MINUTE = 60;
 	public static final int HOUR = 3600;
 
