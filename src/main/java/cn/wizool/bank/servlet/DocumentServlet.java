@@ -74,9 +74,11 @@ public class DocumentServlet extends PlatFormHttpServlet {
 									.returnLength((int) doc.getLength()));
 							json.setAttribute("type", doc.getType());
 							if (doc.getUpload_publisher() != null) {
-								json.setAttribute("user", doc.getUpload_publisher().getName());
-								json.setAttribute("dept", doc.getUpload_publisher()
-										.getParent().getName());
+								json.setAttribute("user", doc
+										.getUpload_publisher().getName());
+								json.setAttribute("dept", doc
+										.getUpload_publisher().getParent()
+										.getName());
 							}
 							json.setAttribute("state", doc.getState());
 						}
@@ -343,9 +345,9 @@ public class DocumentServlet extends PlatFormHttpServlet {
 				}
 				String file = loc + File.separator + uuid;
 				p.write(file);
-				
+
 				File tmpFile = new File(file);
-				
+
 				// 获取文件的MD5
 				String md5 = MD5.byteArrayToHex(FileUtil.md5(file));
 				strs[3] = md5;
@@ -472,10 +474,11 @@ public class DocumentServlet extends PlatFormHttpServlet {
 									.returnLength((int) doc.getLength()));
 							json.setAttribute("type", doc.getType());
 							if (doc.getUpload_publisher() != null) {
-								json.setAttribute("user", doc.getUpload_publisher()
+								json.setAttribute("user", doc
+										.getUpload_publisher().getName());
+								json.setAttribute("dept", doc
+										.getUpload_publisher().getParent()
 										.getName());
-								json.setAttribute("dept", doc.getUpload_publisher()
-										.getParent().getName());
 							}
 						}
 						json.flush();
@@ -539,8 +542,8 @@ public class DocumentServlet extends PlatFormHttpServlet {
 		}
 
 		if (imgfile == null) {
-			imgfile = this.getRequest().getServletContext().getRealPath("/")
-					+ "/app/resource/image/login.jpg";
+			imgfile = this.getRequest().getServletContext()
+					.getRealPath("/app/resource/image/login.jpg");
 		}
 
 		this.getResponse().setContentType("image/jpg");
@@ -647,13 +650,13 @@ public class DocumentServlet extends PlatFormHttpServlet {
 	 * @return 有true 无false
 	 */
 	private boolean existsFileByMd5(String md5) {
- 		List<Document> list = getDocumentService().getListAlls();
- 		for (Document d : list) {
- 			if (md5.equals(d.getMd5()))
- 				return true;
- 		}
+		List<Document> list = getDocumentService().getListAlls();
+		for (Document d : list) {
+			if (md5.equals(d.getMd5()))
+				return true;
+		}
 		return false;
- 	}
+	}
 
 	private void deleteFile(File file) {
 		File[] files = file.listFiles();
