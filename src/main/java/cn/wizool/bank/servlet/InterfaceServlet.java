@@ -594,7 +594,7 @@ public class InterfaceServlet extends PlatFormHttpServlet {
 		try {
 			request.setCharacterEncoding("utf-8");
 			Part p = request.getPart("file");
-			String name = getName(getFileName(p));
+			String name = getName(getFileName(p, "UTF-8"));
 			Machine m = getMachineService().getObject(id);
 			if (m != null) {
 				HttpServletResponse res = list.get(id);

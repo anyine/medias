@@ -537,7 +537,7 @@ public class MediaServlet extends PlatFormHttpServlet {
 			for (Part p : x) {
 				if (p.getName().equals("documents")) {
 					n++;
-					maps.put(getFileName(p), p);
+					maps.put(getFileName(p, "UTF-8"), p);
 				}
 			}
 			List<Document> list = null;
@@ -619,7 +619,7 @@ public class MediaServlet extends PlatFormHttpServlet {
 		String succee = null;
 		try {
 			getRequest().setCharacterEncoding("utf-8");
-			String fileName = getFileName(p);
+			String fileName = getFileName(p, "UTF-8");
 			strs[1] = fileName;
 			String extension = getFileEndName(fileName);// 后缀
 			if (extension.length() <= 0) { // 文件没有后缀名，不是有效文件

@@ -1,6 +1,7 @@
 package cn.wizool.bank.iwebutil.newlay;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -304,11 +305,23 @@ public abstract class AbstractHttpServlet extends HttpServlet {
 		return formatNumber(d, 2);
 	}
 
-	public String getFileName(Part file) {
+	public String getFileName(Part file, String charset) {
+		int i = 0;
 		String fileHeader = file.getHeader("content-disposition");
-		String fileName = fileHeader.substring(fileHeader.lastIndexOf("=") + 2,
-				fileHeader.length() - 1);
-		return fileName;
+		byte[] fileNames = fileHeader.getBytes();
+		for (i = 0; i < fileNames.length; i++) {
+			if (fileNames[i] == '=') {
+				break;
+			}
+		}
+		byte[] f = new byte[fileNames.length - i - 3];
+		System.arraycopy(fileNames, i + 2, f, 0, f.length);
+		try {
+			return new String(f, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public String getFilePartValue(HttpServletRequest request, String name) {

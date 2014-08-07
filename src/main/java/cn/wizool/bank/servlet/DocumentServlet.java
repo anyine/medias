@@ -331,7 +331,7 @@ public class DocumentServlet extends PlatFormHttpServlet {
 		String succee = null;
 		try {
 			getRequest().setCharacterEncoding("utf-8");
-			String fileName = getFileName(p);
+			String fileName = getFileName(p, "UTF-8");
 			strs[1] = fileName;
 			String extension = getFileEndName(fileName);// 后缀
 			if (extension.length() <= 0) { // 文件没有后缀名，不是有效文件
@@ -561,7 +561,7 @@ public class DocumentServlet extends PlatFormHttpServlet {
 		try {
 			getRequest().setCharacterEncoding("utf-8");
 			Part p = getRequest().getPart("url");
-			String extension = getFileEndName(getFileName(p));
+			String extension = getFileEndName(getFileName(p, "UTF-8"));
 			if (extension.length() <= 0) {
 				succee = "请重新选择文件";
 			} else if (extension.equals("xls")) {
