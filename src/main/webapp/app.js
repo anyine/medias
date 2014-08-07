@@ -10,8 +10,7 @@ Ext.onReady(function() {
 			} else {
 				var cookieStr = document.cookie;
 				if (cookieStr.indexOf('userName') != -1) {
-					var cookieArr = cookieStr.split('=');
-					if (cookieArr[1] != 'null') {
+					if (cookieStr.indexOf('userName=null') == -1) {
 						var viewport = new app.system.MainView();
 					} else {
 						var win = new app.system.Login();

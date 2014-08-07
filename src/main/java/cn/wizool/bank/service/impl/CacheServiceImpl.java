@@ -452,8 +452,10 @@ public class CacheServiceImpl extends PlatFormServiceSupport implements
 			cond.putString("MachineId", id);
 			cond.putString("TaskId", tid);
 			MachineTasks mt = getMachineTasksDao().select(cond);
-			mt.setCount(mt.getCount() + 1);
-			getMachineTasksDao().update(mt);
+			if (mt != null) {
+				mt.setCount(mt.getCount() + 1);
+				getMachineTasksDao().update(mt);
+			}
 		} else if (status.equals("down")) {
 			loadMachine(id).setTask(tid, "下载");
 		} else if (status.equals("stop")) {

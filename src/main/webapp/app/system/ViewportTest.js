@@ -80,7 +80,7 @@ Ext
 				margins : '3 0 3 3',
 				bbar : [ new Ext.Toolbar.TextItem('工具栏 '), {
 					xtype : "tbfill"
-				}, new Ext.Toolbar.TextItem('微卓软件'), {
+				}, new Ext.Toolbar.TextItem('汇金软件'), {
 					xtype : 'tbseparator'
 				}, {
 					pressed : false,

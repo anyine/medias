@@ -1,7 +1,7 @@
-
-host=64.112.8.10
-port=80
-url=/bank/cn/wizool/bank/servlet/InterfaceServlet
+host=192.168.2.136
+port=8088
+url=/bank/client
+interval=10000
 
 filedir=D:\TMP
 tempdir=D:\DOWNTMP
@@ -9,4 +9,4 @@ taskdir=D:\ROOT
 
 
 message.fileNotFound=抱歉，您访问的文件在服务器上已经删除！
-message.applicationName=济南微卓信息技术有限公司
+message.applicationName=山东汇金信息科技有限公司

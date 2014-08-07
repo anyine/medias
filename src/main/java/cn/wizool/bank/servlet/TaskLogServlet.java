@@ -315,12 +315,14 @@ public class TaskLogServlet extends PlatFormHttpServlet {
 												.returnLength((int) d
 														.getLength()));
 										json.setAttribute("type", d.getType());
-										json.setAttribute("user", d
-												.getUpload_publisher()
-												.getName());
-										json.setAttribute("dept", d
-												.getUpload_publisher()
-												.getParent().getName());
+										if (d.getUpload_publisher() != null) {
+											json.setAttribute("user", d
+													.getUpload_publisher()
+													.getName());
+											json.setAttribute("dept", d
+													.getUpload_publisher()
+													.getParent().getName());
+										}
 										json.setAttribute("state", d.getState());
 										json.endObject();
 									}

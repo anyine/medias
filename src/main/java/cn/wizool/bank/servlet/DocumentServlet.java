@@ -73,10 +73,11 @@ public class DocumentServlet extends PlatFormHttpServlet {
 							json.setAttribute("length", StringUtil
 									.returnLength((int) doc.getLength()));
 							json.setAttribute("type", doc.getType());
-							json.setAttribute("user", doc.getUpload_publisher()
-									.getName());
-							json.setAttribute("dept", doc.getUpload_publisher()
-									.getParent().getName());
+							if (doc.getUpload_publisher() != null) {
+								json.setAttribute("user", doc.getUpload_publisher().getName());
+								json.setAttribute("dept", doc.getUpload_publisher()
+										.getParent().getName());
+							}
 							json.setAttribute("state", doc.getState());
 						}
 						json.flush();
@@ -91,6 +92,9 @@ public class DocumentServlet extends PlatFormHttpServlet {
 		String path = getRequest().getParameter("path");
 		File f = new File(path);
 		File files[] = f.listFiles();
+		if (files == null) {
+			files = new File[0];
+		}
 		JSONArray json = new JSONArray(getResponse());
 		json.setSuccess(true);
 		json.setMessage("");

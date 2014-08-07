@@ -144,7 +144,7 @@ app.system.MainView = Ext
 							margins : '0 0 0 0',
 							bbar : [ {
 								xtype : "tbfill"
-							}, new Ext.Toolbar.TextItem('微卓软件'), {
+							}, new Ext.Toolbar.TextItem('汇金软件'), {
 								xtype : 'tbseparator'
 							}, {
 								pressed : false,

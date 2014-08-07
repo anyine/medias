@@ -73,7 +73,8 @@ public abstract class AbstractHttpServlet extends HttpServlet {
 			}
 		} else {
 			synchronized (map) {
-				this.getResponse().getWriter().write(number.longValue() + "\r\n");
+				this.getResponse().getWriter()
+						.write(number.longValue() + "\r\n");
 				for (String key : map.keySet()) {
 					this.getResponse().getWriter()
 							.write(key + ":" + map.get(key) + "\r\n");
@@ -83,7 +84,7 @@ public abstract class AbstractHttpServlet extends HttpServlet {
 		}
 
 		if (method != null) {
-			Method m;
+			Method m = null;
 			try {
 				number.incrementAndGet();
 				m = this.getClass().getDeclaredMethod(method);
@@ -100,7 +101,9 @@ public abstract class AbstractHttpServlet extends HttpServlet {
 			} catch (IllegalArgumentException e) {
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				e.printStackTrace();
+				System.out.println("error: " + this.getClass().getName() + ":"
+						+ m.getName());
+				// e.printStackTrace();
 			} finally {
 				number.decrementAndGet();
 			}

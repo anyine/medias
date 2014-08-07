@@ -11,19 +11,19 @@
   </context-param>
   <context-param>
     <param-name>filepath</param-name>
-    <param-value>/home/system/FILES</param-value>
+    <param-value>/home/zhangbo/FILES</param-value>
   </context-param>
   <context-param>
     <param-name>taskpath</param-name>
-    <param-value>/home/system/TASKS</param-value>
+    <param-value>/home/zhangbo/TASKS</param-value>
   </context-param>
   <context-param>
     <param-name>backgroundImgPath</param-name>
-    <param-value>/home/system/IMG</param-value>
+    <param-value>/home/zhangbo/IMG</param-value>
   </context-param>
   <context-param>
     <param-name>uploaddir</param-name>
-    <param-value>/home/system/UPLOADDIR</param-value>
+    <param-value>/home/zhangbo/UPLOADDIR</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
