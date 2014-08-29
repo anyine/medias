@@ -685,13 +685,13 @@ public class DepartmentServlet extends PlatFormHttpServlet {
 				getRequest().getSession().setAttribute("id", uuid);
 				getRequest().getSession().setAttribute("ip",
 						getRequest().getRemoteAddr());
-				getResponse().sendRedirect("/bank/Register.html");
+				getResponse().sendRedirect("/medias/Register.html");
 			} else {
 				if (m.getType().equals("广告")) {
-					getResponse().sendRedirect("/bank/Media1.html");
+					getResponse().sendRedirect("/medias/Media1.html");
 				} else if (m.getType().equals("培训")) {
 					getRequest().getSession().setAttribute("id", uuid);
-					getResponse().sendRedirect("/bank/Train1.html");
+					getResponse().sendRedirect("/medias/Train1.html");
 				}
 			}
 		} catch (IOException e) {
